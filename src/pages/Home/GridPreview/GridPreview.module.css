@@ -1,0 +1,80 @@
+.gridContainer {
+    display: grid;
+    grid-gap: 1.3rem;
+    gap: 1.3rem;
+    grid-template-areas:
+        "a b c"
+        "a b d";
+
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    height: 50rem;
+    width: 100%;
+}
+.gridContainer > a {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+.gridContainer > a p {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+
+    color: white;
+    font-size: 3.8rem;
+    font-weight: 600;
+}
+.one {
+    grid-area: a;
+}
+.two {
+    grid-area: b;
+}
+.four {
+    grid-area: c;
+}
+.fourLow {
+    grid-area: d;
+}
+
+.gridContainer img {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+
+    filter: brightness(70%);
+
+    transition: all 0.2s ease;
+}
+.gridContainer > a:hover img {
+    filter: brightness(50%);
+}
+
+@media (max-width: 980px) {
+    .gridContainer {
+        height: 500px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "a b"
+            "c d";
+
+        grid-gap: 13px;
+        gap: 13px;
+    }
+    .gridContainer img {
+        object-position: 0 0;
+        filter: brightness(60%);
+
+        max-height: 25rem;
+    }
+
+    .gridContainer > a p {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Blinker', sans-serif;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-main-red) white;
+}
+
+a, button, img, span {
+    color: black;
+    user-select: none;
+    text-decoration: none;
+}
+
+#root {
+    --color-main-red: #d61415;
+}
+
+html {
+    font-size: 62.5%;
+}

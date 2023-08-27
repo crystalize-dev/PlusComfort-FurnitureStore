@@ -1,0 +1,136 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.5);
+
+    z-index: 99999999999;
+
+    filter: opacity(1);
+    pointer-events: all;
+
+    transition: 0.2s ease 0s;
+}
+.hide {
+    filter: opacity(0);
+    pointer-events: none;
+}
+.hide .window {
+    transform: translateX(100%);
+}
+
+.window {
+    position: relative;
+
+    padding: 20px;
+
+    width: 500px;
+    height: 100%;
+
+    background-color: white;
+
+    transition: all 0.2s ease;
+}
+.window > i {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    font-size: 2.8rem;
+    cursor: pointer;
+}
+.window > h1 {
+    font-size: 2.2rem;
+}
+.content {
+    margin: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding-right: 10px;
+
+    width: 100%;
+    height: calc(100% - 200px);
+
+    overflow-y: scroll;
+}
+.content::-webkit-scrollbar {
+    width: 10px;
+
+    background: transparent;
+}
+.content::-webkit-scrollbar-thumb {
+    background: var(--color-main-red);
+}
+
+.empty {
+    margin-top: 200px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+    gap: 2rem;
+}
+.empty > img {
+    width: 70%;
+}
+.empty > p {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.window hr {
+    border: 2px dashed black;
+}
+
+.sumArea {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 20px 0;
+
+    width: 100%;
+    height: 110px;
+}
+
+.textArea {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.sumArea button {
+    align-self: flex-end;
+
+    background-color: initial;
+    border: 2px solid black;
+    color: black;
+
+    font-size: 2rem;
+    padding: 1rem 3.5rem;
+    text-decoration: none;
+
+    height: 50px;
+    cursor: pointer;
+
+    transition: all .2s;
+}
+.sumArea button:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 980px) {
+    .window {
+        width: 100%;
+    }
+}

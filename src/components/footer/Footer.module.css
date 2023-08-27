@@ -1,0 +1,59 @@
+.upperBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 28rem;
+
+    background-color: #191919;
+}
+.upperBlock h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+.upperBlock form input {
+    font-size: 1.7rem;
+    padding: 1rem;
+    margin-right: 0.7rem;
+
+    border: none;
+    outline: none;
+
+    height: 45px;
+    width: 30rem;
+}
+.upperBlock form button {
+    border: none;
+    font-size: 1.7rem;
+    padding: 0.7rem;
+    cursor: pointer;
+
+    height: 45px;
+}
+
+.bottomBlock {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    height: 10rem;
+
+    background-color: #000;
+}
+.links {
+    flex-wrap: wrap;
+
+    gap: 3rem;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.links a {
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+}

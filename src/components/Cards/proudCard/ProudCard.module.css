@@ -1,0 +1,22 @@
+.card {
+    cursor: pointer;
+    outline: 2px solid rgba(0,0,0,.205);
+    outline-offset: -2px;
+    transition: all .15s ease-in;
+}
+.card:hover {
+    outline: 2px solid black;
+}
+.card img {
+    width: 100%;
+}
+.card p {
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+.card h4 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 1.4rem;
+    padding: 1rem;
+}

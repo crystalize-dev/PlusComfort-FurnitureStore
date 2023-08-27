@@ -1,1 +1,4 @@
-# Project init
+# ToDo:
+
+ - Product page
+ - Categories
