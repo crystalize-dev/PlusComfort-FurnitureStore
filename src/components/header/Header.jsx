@@ -39,7 +39,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={cl.header}>
+            <header id={"header"} className={cl.header}>
                 <div className={cl.container}>
                     <Link to={"/"}>
                         <img src={logo} alt={"logo"} draggable={false} className={cl.logo}/>

@@ -45,6 +45,9 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+
+    max-width: 9rem;
+    min-width: 9rem;
 }
 .controlBtns button {
     background-color: transparent;
@@ -73,6 +76,8 @@
 .right p {
     font-size: 2.4rem;
     white-space: nowrap;
+    max-width: 10rem;
+    min-width: 10rem;
 }
 .right i {
     font-weight: 900;

@@ -23,6 +23,8 @@ function App() {
     }
 
     const increaseAmount = (item, amount) => {
+        if (item.amount + 1 > 99) return
+
         setCart([...cart.map((cartItem) => {
             if (cartItem.id === item.id) return {...item, amount: item.amount + amount}
             else return cartItem

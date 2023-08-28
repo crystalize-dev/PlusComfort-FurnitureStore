@@ -45,7 +45,18 @@ const Product = () => {
         setModal(true)
     }
 
+    const limitInput = e => {
+        let newValue = Number(e.target.value)
+
+        if (newValue > 99) return
+
+        setQuantity(newValue)
+    }
+
     useEffect(() => {
+        let header = document.getElementById('header')
+        header.scrollIntoView()
+
         setImage(item.img)
         setQuantity(1)
     }, [item])
@@ -86,9 +97,9 @@ const Product = () => {
                             <div className={cl.btns}>
                                 <button onClick={decreaseQuantity}>-</button>
 
-                                <p>{quantity}</p>
+                                <input type={"number"} value={quantity} onChange={e => limitInput(e)} min={1} max={99}/>
 
-                                <button onClick={increaseQuantity}>+</button>
+                                <button className={cl.fix} onClick={increaseQuantity}>+</button>
                             </div>
 
                             <p className={cl.price}>{(item.price * quantity).toFixed(2)}$</p>

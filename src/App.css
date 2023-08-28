@@ -13,6 +13,9 @@ a, button, img, span {
     user-select: none;
     text-decoration: none;
 }
+input[type='number'] {
+    -moz-appearance: textfield;
+}
 
 #root {
     --color-main-red: #d61415;

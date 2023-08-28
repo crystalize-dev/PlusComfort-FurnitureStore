@@ -150,9 +150,24 @@
     transition: all .2s;
     width: 5.5rem;
 }
-.btns > p {
-    outline-offset: -2px;
-    text-align: center;
+.btns input {
+    width: 2rem;
+    font-size: 2rem;
+
+    outline: none;
+    border: none;
+
+    background-color: transparent;
+}
+.btns input::-webkit-outer-spin-button,
+.btns input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    display: none;
+}
+.fix {
+    position: relative;
+    right: 20px;
 }
 .price {
     max-width: 10rem;
