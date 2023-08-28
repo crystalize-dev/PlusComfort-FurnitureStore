@@ -1,5 +1,5 @@
 <div align='center'>
-<h1><span style="color: #d61415">Plus</span>Comfort</h1>
+<h1><span style="color:#d61415">Plus</span>Comfort</h1>
 <img alt="" style="width:100px" src='./src/img/logo.jpg'/>
 </div>
 <h2>About the project</h2>
