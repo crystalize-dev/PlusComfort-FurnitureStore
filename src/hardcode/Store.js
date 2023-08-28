@@ -63,7 +63,7 @@ import Comfy2 from "../img/products/otherProducts/comfy2.webp";
 export const store = [
     {
         id: 1,
-        category: "chair",
+        category: "furniture chair",
         img: Img1,
         description: "Little Armchair Sheepskin",
         price: 986,
@@ -76,7 +76,7 @@ export const store = [
     },
     {
         id: 2,
-        category: "kitchen",
+        category: "kitchen electronics",
         img: Img2,
         description: "Pop-Up Toaster",
         price: 45,
@@ -89,7 +89,7 @@ export const store = [
     },
     {
         id: 3,
-        category: "lamp",
+        category: "electronics lamp kitchen",
         img: Img3,
         description: "Lamp Light Blue",
         price: 79,
@@ -115,7 +115,7 @@ export const store = [
     },
     {
         id: 5,
-        category: "lamp",
+        category: "electronics lamp",
         img: Img5,
         description: "Golden Modern Light",
         price: 189,
@@ -128,7 +128,7 @@ export const store = [
     },
     {
         id: 6,
-        category: "skin-care",
+        category: "skincare",
         img: Img6,
         description: "Body Oil 200ml",
         price: 67,
@@ -141,7 +141,7 @@ export const store = [
     },
     {
         id: 7,
-        category: "lamp",
+        category: "electronics lamp kitchen",
         img: Img7,
         description: "Black and White Lamp",
         price: 220,
@@ -180,7 +180,7 @@ export const store = [
     },
     {
         id: 10,
-        category: "chair",
+        category: "furniture chair",
         img: Img10,
         description: "Traditional Armchair",
         price: 89,
@@ -193,7 +193,7 @@ export const store = [
     },
     {
         id: 11,
-        category: "lamp",
+        category: "electronics lamp kitchen",
         img: Img11,
         description: "The Sun Pendant Black",
         price: 160,
@@ -206,7 +206,7 @@ export const store = [
     },
     {
         id: 12,
-        category: "lamp",
+        category: "electronics lamp kitchen",
         img: Img12,
         description: "Simple Golden Lamp",
         price: 220,
@@ -219,7 +219,7 @@ export const store = [
     },
     {
         id: 13,
-        category: "skin-care",
+        category: "skincare",
         img: Img13,
         description: "Unbleached Cotton Pads 180",
         price: 33,
@@ -232,7 +232,7 @@ export const store = [
     },
     {
         id: 14,
-        category: "chair",
+        category: "furniture chair",
         img: Img14,
         description: "Oak Spanish Chair",
         price: 520,
@@ -245,7 +245,7 @@ export const store = [
     },
     {
         id: 15,
-        category: "chair",
+        category: "furniture chair",
         img: Img15,
         description: "Copenhagen Armchair",
         price: 330,
@@ -258,7 +258,7 @@ export const store = [
     },
     {
         id: 16,
-        category: "electronic",
+        category: "electronics lamp",
         img: Img16,
         description: "Anti Dark Light",
         price: 120,
@@ -271,7 +271,7 @@ export const store = [
     },
     {
         id: 17,
-        category: "lamp",
+        category: "electronics lamp",
         img: Img17,
         description: "Table Lamp",
         price: 75,
@@ -284,7 +284,7 @@ export const store = [
     },
     {
         id: 18,
-        category: "lamp",
+        category: "electronics lamp",
         img: Img18,
         description: "Mat Black Lamp",
         price: 175,
@@ -297,7 +297,7 @@ export const store = [
     },
     {
         id: 19,
-        category: "chair",
+        category: "furniture chair",
         img: Img19,
         description: "Comfy Chair",
         price: 119,
@@ -310,7 +310,7 @@ export const store = [
     },
     {
         id: 20,
-        category: "skin-care",
+        category: "skincare",
         img: Img20,
         description: "Body Oil 50ml",
         price: 45,

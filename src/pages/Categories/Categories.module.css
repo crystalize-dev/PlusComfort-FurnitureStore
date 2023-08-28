@@ -1,0 +1,99 @@
+.wrapper {
+    width: 100%;
+    height: fit-content;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 100px 20px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+
+    margin-top: 6rem;
+
+    width: 100%;
+}
+.title > a {
+    color: black;
+
+    font-size: 1.6rem;
+    text-align: left;
+    text-decoration: none;
+}
+.title > a i {
+    position: relative;
+    right: 0;
+
+    transition: all 0.3s ease;
+}
+.title a:hover i {
+    right: 10px;
+}
+.title > h3 {
+    font-size: 2.7rem;
+
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    width: 100%;
+}
+.btns button {
+    color: black;
+    font-size: 1.6rem;
+    text-decoration: none;
+
+    background-color: initial;
+    border: 2px solid rgba(0,0,0,.3);
+    cursor: pointer;
+    padding: 0.6rem 1.6rem;
+
+    transition: all .2s;
+}
+.active {
+    border: 2px solid var(--color-main-red)!important;
+}
+
+.gridContainer {
+    display: grid;
+    grid-gap: 2rem;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+@media (max-width: 980px) {
+    .gridContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+    .container {
+        padding: 0 20px 40px 20px;
+    }
+
+    .title {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .title > a {
+        align-self: flex-start;
+    }
+}

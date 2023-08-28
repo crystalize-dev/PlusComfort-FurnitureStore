@@ -13,6 +13,10 @@
     font-size: 3.5rem;
     margin-bottom: 2rem;
 }
+.upperBlock form {
+    display: flex;
+    align-items: center;
+}
 .upperBlock form input {
     font-size: 1.7rem;
     padding: 1rem;
@@ -27,7 +31,7 @@
 .upperBlock form button {
     border: none;
     font-size: 1.7rem;
-    padding: 0.7rem;
+    padding: 0.7rem 1.4rem;
     cursor: pointer;
 
     height: 45px;
@@ -41,7 +45,7 @@
 
     height: 10rem;
 
-    background-color: #000;
+    background-color: black;
 }
 .links {
     flex-wrap: wrap;
@@ -56,4 +60,15 @@
     color: white;
     font-size: 1.8rem;
     text-decoration: none;
+}
+
+@media (max-width: 980px) {
+    .bottomBlock {
+        height: 14rem;
+    }
+
+    .upperBlock form {
+        flex-direction: column;
+        gap: 2rem;
+    }
 }

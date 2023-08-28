@@ -11,6 +11,10 @@
 }
 
 .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     background-color: white;
 
     height: 100%;
@@ -20,7 +24,6 @@
     border-radius: 3px;
 
     height: 100%;
-
     width: 100%;
 
     object-fit: cover;
@@ -81,4 +84,30 @@
     font-weight: 500;
     font-size: 1.8rem !important;
     color: rgba(0,0,0,0.5);
+}
+
+@media (max-width: 980px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+    .img img {
+        max-width: 20rem;
+    }
+
+    .controlBtns button {
+        font-size: 4rem;
+    }
+    .controlBtns p {
+        font-size: 3rem;
+    }
+
+    .right {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .right i {
+        position: relative;
+        right: 10px;
+    }
 }

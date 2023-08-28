@@ -39,6 +39,8 @@
     position: relative;
     scroll-behavior: smooth;
     white-space: nowrap;
+
+    scrollbar-width: none;
 }
 .container::-webkit-scrollbar {
     display: none;

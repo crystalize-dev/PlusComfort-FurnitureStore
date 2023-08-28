@@ -130,7 +130,17 @@
 }
 
 @media (max-width: 980px) {
+    .empty {
+        margin-top: 100px;
+    }
+    .empty > img {
+        width: 60%;
+    }
+
     .window {
         width: 100%;
+    }
+    .content::-webkit-scrollbar {
+        display: none;
     }
 }
