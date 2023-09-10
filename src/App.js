@@ -3,11 +3,23 @@ import AppRouter from "./routing/AppRouter";
 import {CartContext} from "./context/CartContext";
 import {useEffect, useState} from "react";
 import {ModalContext} from "./context/ModalContext";
+import {LangContext} from "./context/LangContext";
 
 
 function App() {
     const [cart, setCart] = useState([])
     const [modal, setModal] = useState(false)
+    const [lang, setLang] = useState('en')
+
+    const switchLang = () => {
+        lang === 'ru' ? setLang('en') : setLang('ru')
+    }
+
+    useEffect(() => {
+        let root = document.getElementById('root')
+
+        lang === 'ru' ? root.setAttribute('data-lang', 'ru') : root.setAttribute('data-lang', 'en')
+    }, [lang])
 
     const addToCart = (item, amount) => {
         if (cart.find(cartItem => cartItem.id === item.id) !== undefined)
@@ -53,11 +65,13 @@ function App() {
     }, [cart]);
 
     return (
-        <ModalContext.Provider value={{modal, setModal}}>
-            <CartContext.Provider value={{cart, addToCart, deleteFromCart, increaseAmount, decreaseAmount}}>
-                <AppRouter/>
-            </CartContext.Provider>
-        </ModalContext.Provider>
+        <LangContext.Provider value={{lang, switchLang}}>
+            <ModalContext.Provider value={{modal, setModal}}>
+                <CartContext.Provider value={{cart, addToCart, deleteFromCart, increaseAmount, decreaseAmount}}>
+                    <AppRouter/>
+                </CartContext.Provider>
+            </ModalContext.Provider>
+        </LangContext.Provider>
     );
 }
 

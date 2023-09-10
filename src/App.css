@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Blinker', sans-serif;
+    font-family: var(--font-main);
 
     scrollbar-width: thin;
     scrollbar-color: var(--color-main-red) white;
@@ -19,6 +21,12 @@ input[type='number'] {
 
 #root {
     --color-main-red: #d61415;
+}
+#root[data-lang="en"] {
+    --font-main: 'Blinker', sans-serif;
+}
+#root[data-lang="ru"] {
+    --font-main: 'Jost', sans-serif;
 }
 
 html {

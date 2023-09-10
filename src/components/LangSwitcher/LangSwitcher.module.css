@@ -1,0 +1,8 @@
+.lang {
+    color: black;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+.lang:hover {
+    text-decoration: underline;
+}

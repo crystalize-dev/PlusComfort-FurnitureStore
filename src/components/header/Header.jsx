@@ -7,6 +7,8 @@ import ModalCart from "../modalCart/ModalCart";
 import {store} from "../../hardcode/Store";
 import {CartContext} from "../../context/CartContext";
 import {ModalContext} from "../../context/ModalContext";
+import LangSwitcher from "../LangSwitcher/LangSwitcher";
+import {LangContext} from "../../context/LangContext";
 
 
 const Header = () => {
@@ -14,8 +16,8 @@ const Header = () => {
     const [searchModalMobile, setSearchModalMobile] = useState(false)
 
     const {modal, setModal} = useContext(ModalContext)
-
     const {cart} = useContext(CartContext)
+    const {lang} = useContext(LangContext)
 
     const getQueryItems = () => {
         const result = store.filter(storeItem => storeItem.description.toLowerCase().includes(value.toLowerCase()))
@@ -39,10 +41,13 @@ const Header = () => {
 
     return (
         <>
+            <div className={cl.headerLang}>
+                <LangSwitcher />
+            </div>
             <header id={"header"} className={cl.header}>
                 <div className={cl.container}>
                     <Link to={"/"}>
-                        <img src={logo} alt={"logo"} draggable={false} className={cl.logo}/>
+                        <img src={logo} alt={"logo"} draggable={false} className={cl.logo} />
                         <div>
                             <p className={cl.redText}>Plus</p>
                             <p>Comfort</p>
@@ -50,7 +55,7 @@ const Header = () => {
                     </Link>
 
                     <div className={searchModalMobile ? classNames(cl.inputWrapper, cl.mobile) : cl.inputWrapper}>
-                        <input onFocus={() => setSearchModalMobile(true)} onBlur={() => setSearchModalMobile(false)} id={"input"} type={"text"} placeholder={"Search"}
+                        <input onFocus={() => setSearchModalMobile(true)} onBlur={() => setSearchModalMobile(false)} id={"input"} type={"text"} placeholder={lang === 'ru' ? "Искать" : "Search"}
                                value={value} onChange={e => setValue(e.target.value)}/>
 
                         <i className={classNames(cl.search, "fa-solid fa-magnifying-glass")}></i>
@@ -62,7 +67,8 @@ const Header = () => {
                     </div>
 
                     <div className={cl.navbar}>
-                        <Link to={"categories?filter=all"}>Categories</Link>
+
+                        <Link to={"categories?filter=all"}>{lang === 'ru' ? "Категории" : "Categories"}</Link>
 
                         <i className="fa-solid fa-cart-shopping" data-count={cart.length === 0 ? null : cart.length} onClick={() => setModal(true)}></i>
                     </div>

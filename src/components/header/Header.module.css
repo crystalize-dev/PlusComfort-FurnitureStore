@@ -1,3 +1,11 @@
+.headerLang {
+    width: 100%;
+    height: 50px;
+
+    max-width: 1200px;
+    padding: 20px 20px;
+    margin: 0 auto;
+}
 .header {
     width: 100%;
     height: 100px;
@@ -26,6 +34,7 @@
 .container > a p {
     font-size: 2.2rem;
     font-weight: 600;
+    font-family: 'Blinker', sans-serif!important;
 }
 .redText {
     color: var(--color-main-red);
