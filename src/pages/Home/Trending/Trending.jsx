@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import cl from "./Trending.module.css"
 import {store} from "../../../hardcode/Store";
 import ProudCard from "../../../components/Cards/proudCard/ProudCard";
+import {LangContext} from "../../../context/LangContext";
 
 
 const Trending = () => {
+    const {lang} = useContext(LangContext)
+
     const slideLeft = () => {
         let slider = document.getElementById("slider");
         slider.scrollLeft = slider.scrollLeft - 235;
@@ -18,7 +21,7 @@ const Trending = () => {
     return (
         <div>
             <div className={cl.header}>
-                <h3>Trending Now</h3>
+                <h3>{lang === 'ru' ? "Сейчас в тренде" : "Trending Now"}</h3>
 
                 <div className={cl.btns}>
                     <button onClick={slideLeft}><i className="fa-solid fa-arrow-left"></i></button>

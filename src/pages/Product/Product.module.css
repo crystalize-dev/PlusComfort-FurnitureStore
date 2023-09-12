@@ -18,7 +18,7 @@
 }
 
 .notification {
-    position: absolute;
+    position: fixed;
     transform: translate(-50%);
     top: -100%;
     left: 50%;
@@ -139,6 +139,7 @@
 .btns > * {
     width: 3rem;
     min-width: 3rem;
+    font-family: 'Blinker', sans-serif!important;
 }
 .btns button {
     background-color: transparent;
@@ -246,7 +247,7 @@
 
 @media (max-width: 980px) {
     .notification {
-        display: none;
+        width: 60%;
     }
 
     .bigImg img {
@@ -280,6 +281,10 @@
         max-width: unset;
         min-width: unset;
         width: fit-content;
+    }
+
+    .submitArea button {
+        font-size: 1.4rem;
     }
 
     .specifications {

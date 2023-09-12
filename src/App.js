@@ -15,12 +15,6 @@ function App() {
         lang === 'ru' ? setLang('en') : setLang('ru')
     }
 
-    useEffect(() => {
-        let root = document.getElementById('root')
-
-        lang === 'ru' ? root.setAttribute('data-lang', 'ru') : root.setAttribute('data-lang', 'en')
-    }, [lang])
-
     const addToCart = (item, amount) => {
         if (cart.find(cartItem => cartItem.id === item.id) !== undefined)
             increaseAmount(cart.find(cartItem => cartItem.id === item.id), amount)
@@ -57,12 +51,28 @@ function App() {
         if (savedCart) {
             setCart(savedCart);
         }
+
+        const language = localStorage.getItem('language')
+        setLang(language)
     }, []);
 
     useEffect(() => {
         const json = JSON.stringify(cart);
         localStorage.setItem("cart", json);
     }, [cart]);
+
+    useEffect(() => {
+        let root = document.getElementById('root')
+
+        if (lang === 'ru') {
+            root.setAttribute('data-lang', 'ru')
+            localStorage.setItem('language', 'ru')
+        } else {
+            root.setAttribute('data-lang', 'en')
+            localStorage.setItem('language', 'en')
+        }
+    }, [lang])
+
 
     return (
         <LangContext.Provider value={{lang, switchLang}}>

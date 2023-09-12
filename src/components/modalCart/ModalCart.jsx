@@ -4,10 +4,12 @@ import classNames from "classnames";
 import {CartContext} from "../../context/CartContext";
 import empty from "../../img/cart/empty-cart.png"
 import CartCard from "../Cards/cartCard/CartCard";
+import {LangContext} from "../../context/LangContext";
 
 
 const ModalCart = ({modal, setModal}) => {
     const {cart} = useContext(CartContext)
+    const {lang} = useContext(LangContext)
 
     const calcSum = (cart) => {
         return cart.reduce((acc, curr) => acc + curr.price* curr.amount, 0);
@@ -18,14 +20,14 @@ const ModalCart = ({modal, setModal}) => {
             <div className={cl.window} onMouseDown={e => e.stopPropagation()}>
                 <i className="fa-solid fa-xmark" onClick={() => setModal(false)}></i>
 
-                <h1>Your shopping cart({cart.length})</h1>
+                <h1>{lang === 'ru' ? "Ваша корзина" : "Your shopping cart"}({cart.length})</h1>
 
                 <div className={cl.content}>
                     {cart.length === 0
                         ?
                             <div className={cl.empty}>
                                 <img alt={"empty"} src={empty} draggable={false}/>
-                                <p>Your cart is empty</p>
+                                <p>{lang ==='ru' ? "Ваша корзина пуста" : "Your cart is empty"}</p>
                             </div>
                         :
                         cart.map(item =>
@@ -36,11 +38,11 @@ const ModalCart = ({modal, setModal}) => {
 
                 <div className={cl.sumArea}>
                     <div className={cl.textArea}>
-                        <p>Subtotal</p>
+                        <p>{lang === 'ru' ? "Всего" : "Subtotal"}</p>
                         <p>{calcSum(cart).toFixed(2)}$</p>
                     </div>
 
-                    <button>Go to Checkout</button>
+                    <button>{lang === 'ru' ? 'Купить' : "Purchase"}</button>
                 </div>
             </div>
         </div>

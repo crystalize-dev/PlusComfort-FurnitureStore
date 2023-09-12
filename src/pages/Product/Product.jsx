@@ -5,12 +5,14 @@ import Trending from "../Home/Trending/Trending";
 import {store} from "../../hardcode/Store";
 import {CartContext} from "../../context/CartContext";
 import {ModalContext} from "../../context/ModalContext";
+import {LangContext} from "../../context/LangContext";
 import classNames from "classnames";
 
 
 const Product = () => {
     const productId = parseInt(useParams().id)
     const item = store.find(storeItem => storeItem.id === productId)
+    const {lang} = useContext(LangContext)
 
     const {addToCart} = useContext(CartContext)
     const {setModal} = useContext(ModalContext)
@@ -63,14 +65,15 @@ const Product = () => {
 
     return (
         <div className={cl.wrapper}>
-            <div onAnimationEnd={() => setNotification(false)} className={notification ? classNames(cl.notification, cl.slide) : cl.notification}>
-                <p>Item has been added to the cart &nbsp; ✅</p>
+            <div onAnimationEnd={() => setNotification(false)}
+                 className={notification ? classNames(cl.notification, cl.slide) : cl.notification}>
+                <p>{lang === 'ru' ? "Товар добавлен в корзину" : "Item has been added to the cart"} &nbsp; ✅</p>
             </div>
 
             <div className={cl.container}>
                 <div className={cl.product}>
                     <div className={cl.leftBlock}>
-                        <h3>{item.description}</h3>
+                        <h3>{lang === 'ru' ? item.descriptionRu : item.description}</h3>
 
                         <div className={cl.bigImg}>
                             <img alt={"main"} src={image} draggable={false}/>
@@ -78,20 +81,22 @@ const Product = () => {
                         <div className={cl.smallImgs}>
                             <img onMouseOver={e => changeImage(e)} alt={"first"} src={item.img} draggable={false}/>
 
-                            <img onMouseOver={e => changeImage(e)} alt={"second"} src={item.otherImgs[0]} draggable={false}/>
+                            <img onMouseOver={e => changeImage(e)} alt={"second"} src={item.otherImgs[0]}
+                                 draggable={false}/>
 
-                            <img onMouseOver={e => changeImage(e)} alt={"third"} src={item.otherImgs[1]} draggable={false}/>
+                            <img onMouseOver={e => changeImage(e)} alt={"third"} src={item.otherImgs[1]}
+                                 draggable={false}/>
                         </div>
                     </div>
 
                     <div className={cl.rightBlock}>
-                        <h3>{item.description}</h3>
+                        <h3>{lang === 'ru' ? item.descriptionRu : item.description}</h3>
 
-                        <p>{item.specs}</p>
+                        <p>{lang === 'ru' ? item.specsRu : item.specs}</p>
 
                         <div className={cl.amountArea}>
                             <p className={cl.quantity}>
-                                Quantity
+                                {lang === 'ru' ? 'Количество' : "Quantity"}
                             </p>
 
                             <div className={cl.btns}>
@@ -106,29 +111,32 @@ const Product = () => {
                         </div>
 
                         <div className={cl.submitArea}>
-                            <button onClick={addToCartAndNotify}>Add to cart</button>
+                            <button
+                                onClick={addToCartAndNotify}>{lang === 'ru' ? 'Добавить в корзину' : "Add to cart"}</button>
 
-                            <button onClick={buyNow}>Buy now</button>
+                            <button onClick={buyNow}>{lang === 'ru' ? "Купить сейчас" : "Buy now"}</button>
                         </div>
                     </div>
                 </div>
 
                 <div className={cl.specifications}>
-                    <div className={cl.spec}>
-                        <p>Texture</p>
-                        <p>{item.texture}</p>
-                    </div>
-                    <div className={cl.spec}>
-                        <p>Weight</p>
-                        <p>{item.weight}</p>
-                    </div>
-                    <div className={cl.spec}>
-                        <p>Size</p>
-                        <p>{item.size}</p>
-                    </div>
+                    {
+                        lang === 'ru'
+                            ?
+                            item.specificationsRu.map(spec =>
+                                <div key={spec.name} className={cl.spec}>
+                                    <p>{spec.name}</p>
+                                    <p>{spec.value}</p>
+                                </div>)
+                            :
+                            item.specifications.map(spec =>
+                                <div key={spec.name} className={cl.spec}>
+                                    <p>{spec.name}</p>
+                                    <p>{spec.value}</p>
+                                </div>)
+                    }
                 </div>
-
-                <Trending />
+                <Trending/>
             </div>
         </div>
     );

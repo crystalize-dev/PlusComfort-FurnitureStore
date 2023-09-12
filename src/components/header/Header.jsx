@@ -20,15 +20,20 @@ const Header = () => {
     const {lang} = useContext(LangContext)
 
     const getQueryItems = () => {
-        const result = store.filter(storeItem => storeItem.description.toLowerCase().includes(value.toLowerCase()))
+        let result
+        if (lang === 'ru') {
+            result = store.filter(storeItem => storeItem.descriptionRu.toLowerCase().includes(value.toLowerCase()))
+        } else {
+            result = store.filter(storeItem => storeItem.description.toLowerCase().includes(value.toLowerCase()))
+        }
 
-        if (value.length === 0 || result.length === 0) return <div className={classNames(cl.rowQuery, cl.notFound)}>Nothing found</div>
+        if (value.length === 0 || result.length === 0) return <div className={classNames(cl.rowQuery, cl.notFound)}>{lang === "ru" ? "Ничего не найдено" : "Nothing found"}</div>
 
         return  result.map(item =>
             <Link to={`/products/${item.id}`} className={cl.rowQuery} key={item.id} onClick={closeInput}>
                 <i className="fa-solid fa-magnifying-glass"></i>
 
-                {item.description}
+                {lang === 'ru' ? item.descriptionRu : item.description}
             </Link>)
     }
 
@@ -41,12 +46,9 @@ const Header = () => {
 
     return (
         <>
-            <div className={cl.headerLang}>
-                <LangSwitcher />
-            </div>
             <header id={"header"} className={cl.header}>
                 <div className={cl.container}>
-                    <Link to={"/"}>
+                    <Link to={"/"} className={cl.logoArea}>
                         <img src={logo} alt={"logo"} draggable={false} className={cl.logo} />
                         <div>
                             <p className={cl.redText}>Plus</p>
@@ -67,6 +69,7 @@ const Header = () => {
                     </div>
 
                     <div className={cl.navbar}>
+                        <LangSwitcher />
 
                         <Link to={"categories?filter=all"}>{lang === 'ru' ? "Категории" : "Categories"}</Link>
 
