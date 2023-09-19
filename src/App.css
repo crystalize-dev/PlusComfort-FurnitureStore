@@ -4,8 +4,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-main);
+    font-family: 'Blinker', sans-serif;
 
+    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--color-main-red) white;
 }
@@ -21,12 +22,6 @@ input[type='number'] {
 
 #root {
     --color-main-red: #d61415;
-}
-#root[data-lang="en"] {
-    --font-main: 'Blinker', sans-serif;
-}
-#root[data-lang="ru"] {
-    --font-main: 'Jost', sans-serif;
 }
 
 html {

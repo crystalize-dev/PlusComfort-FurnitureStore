@@ -1,0 +1,40 @@
+{
+  "header.input": "Search",
+  "header.input.nothing": "Nothing found",
+  "header.categories": "Categories",
+
+  "grid.card1": "Live comfortably",
+  "grid.card2": "Skincare",
+  "grid.card3": "Kitchen",
+  "grid.card4": "Electronics",
+
+  "proud.header": "Products we are proud of",
+  "trending.header" : "Trending Now",
+
+  "banner.header1": "Comfortable & Elegant Living",
+  "banner.header2": "Creative harmonious living",
+  "banner.title": " Products are all made to standard sizes so that you can mix and match them freely",
+  "banner.button": "SHOP NOW",
+
+  "footer.h1": "Newsletter",
+  "footer.button": "Subscribe",
+  "footer.links.about": "About",
+  "footer.links.location": "Store locator",
+  "footer.links.faq": "FAQs",
+  "footer.links.news": "News",
+  "footer.links.careers": "Careers",
+  "footer.links.contact": "Contact Us",
+
+  "categories.back": "Home",
+
+  "product.notification": "Added to cart",
+  "product.quantity": "Quantity",
+  "product.button.add": "Add to cart",
+  "product.button.buy": "Buy now",
+
+  "cart.header": "Your shopping cart",
+  "cart.empty": "Your cart is empty",
+  "cart.summary": "Subtotal",
+  "cart.buy": "Purchase",
+  "cart.per": "per"
+}

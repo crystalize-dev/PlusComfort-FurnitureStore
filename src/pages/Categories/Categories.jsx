@@ -1,22 +1,19 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useTranslation, useTranslationChange} from "i18nano";
 import cl from "./Categories.module.css"
 import {Link, useSearchParams} from "react-router-dom";
 import {store} from "../../hardcode/Store";
 import {categories} from "../../hardcode/categories";
-import {LangContext} from "../../context/LangContext";
 import ProudCard from "../../components/Cards/proudCard/ProudCard";
 
 
 const Categories = () => {
     const [query, setQuery] = useSearchParams()
     const [resultArr, setResultArr] = useState([])
-    const {lang} = useContext(LangContext)
 
-    useEffect(() => {
-        const filter = query.get('filter')
+    const lang = useTranslationChange().lang
+    const text = useTranslation()
 
-        setResultArr(filter === 'all' ? store : store.filter(storeItem => ~storeItem.category.indexOf(filter)))
-    }, [query])
 
     const translate = (en) => {
         switch (en) {
@@ -31,11 +28,22 @@ const Categories = () => {
         }
     }
 
+    useEffect(() => {
+        let header = document.getElementById('start')
+        header.scrollIntoView()
+    }, [])
+
+    useEffect(() => {
+        const filter = query.get('filter')
+
+        setResultArr(filter === 'all' ? store : store.filter(storeItem => ~storeItem.category.indexOf(filter)))
+    }, [query])
+
     return (
         <div className={cl.wrapper}>
             <div className={cl.container}>
                 <div className={cl.title}>
-                    <Link to={"/"}><i className="fa-solid fa-chevron-left"></i>{lang === "ru" ? " Назад" : " Home"}</Link>
+                    <Link to={"/"}><i className="fa-solid fa-chevron-left"></i>{text('categories.back')}</Link>
                     <h3>{lang === 'ru' ? translate(query.get('filter')) : query.get('filter')}</h3>
                 </div>
 

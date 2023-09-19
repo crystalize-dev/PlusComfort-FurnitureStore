@@ -1,8 +1,10 @@
 .lang {
+    user-select: none;
+    cursor: pointer;
+
     color: black;
     font-size: 2rem;
-    cursor: pointer;
-}
-.lang:hover {
-    text-decoration: underline;
+
+    min-width: 2.2rem;
+    max-width: 2.2rem;
 }

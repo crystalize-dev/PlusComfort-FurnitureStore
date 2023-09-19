@@ -7,7 +7,6 @@ import Trending from "./Trending/Trending";
 import ComfortLiving from "./Banners/ComfortLiving/ComfortLiving";
 
 
-
 const Home = () => {
     return (
         <div className={cl.wrapper}>

@@ -1,0 +1,40 @@
+{
+  "header.input": "Искать",
+  "header.input.nothing": "Ничего не найдено",
+  "header.categories": "Категории",
+
+  "grid.card1": "Комфортная мебель",
+  "grid.card2": "Забота о коже",
+  "grid.card3": "Кухня",
+  "grid.card4": "Электроника",
+
+  "proud.header": "Наша гордость",
+  "trending.header" : "Сейчас в тренде",
+
+  "banner.header1": "Комфортная и элегантная жизнь",
+  "banner.header2": "Творческая гармоничная жизнь",
+  "banner.title": "  Все продукты изготавливаются по стандартным размерам, поэтому вы можете свободно комбинировать их",
+  "banner.button": "НАЧАТЬ ПОКУПКИ",
+
+  "footer.h1": "Новости",
+  "footer.button": "Подписаться",
+  "footer.links.about": "О нас",
+  "footer.links.location": "Карта складов",
+  "footer.links.faq": "Вопросы",
+  "footer.links.news": "Новости",
+  "footer.links.careers": "Карьера",
+  "footer.links.contact": "Контакты",
+
+  "categories.back": "Назад",
+
+  "notification": "Добавлено в корзину",
+  "product.quantity": "Количество",
+  "product.button.add": "Добавить в корзину",
+  "product.button.buy": "Купить сейчас",
+
+  "cart.header": "Ваша корзина",
+  "cart.empty": "Ваша корзина пуста",
+  "cart.summary": "Всего",
+  "cart.buy": "Купить",
+  "cart.per": "за"
+}

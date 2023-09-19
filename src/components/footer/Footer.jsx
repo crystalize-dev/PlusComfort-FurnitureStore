@@ -1,37 +1,31 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
+import {useTranslation} from "i18nano";
 import cl from "./Footer.module.css"
-import {LangContext} from "../../context/LangContext";
 
 
 const Footer = () => {
     const [value, setValue] = useState('')
-    const {lang} = useContext(LangContext)
+    const text = useTranslation()
 
     return (
         <footer>
             <div className={cl.upperBlock}>
-                <h1>{lang === 'ru' ? "Новости" : "Newsletter"}</h1>
+                <h1>{text('footer.h1')}</h1>
 
                 <form>
                     <input placeholder={"your@email.com"}
                            value={value} onChange={e => setValue(e.target.value)}/>
-                    <button onClick={e => e.preventDefault()}>{lang === 'ru' ? "Подписаться" : "Subscribe"}</button>
+                    <button onClick={e => e.preventDefault()}>{text('footer.button')}</button>
                 </form>
             </div>
             <div className={cl.bottomBlock}>
                 <div className={cl.links}>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={"#"}>{lang === 'ru' ? "О нас" : "About"}</a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={"#"}>{lang === 'ru' ? "Карта складов" : "Store locator"}</a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={"#"}>{lang === 'ru' ? "Вопросы" : "FAQs"}</a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={"#"}>{lang === 'ru' ? "Новости" : "News"}</a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={"#"}>{lang === 'ru' ? "Карьера" : "Careers"}</a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href={"#"}>{lang === 'ru' ? "Контакты" : "Contact Us"}</a>
+                    <p>{text('footer.links.about')}</p>
+                    <p>{text('footer.links.location')}</p>
+                    <p>{text('footer.links.faq')}</p>
+                    <p>{text('footer.links.news')}</p>
+                    <p>{text('footer.links.careers')}</p>
+                    <p>{text('footer.links.contact')}</p>
                 </div>
             </div>
         </footer>

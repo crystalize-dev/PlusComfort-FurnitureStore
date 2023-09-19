@@ -1,14 +1,18 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import cl from "./LangSwitcher.module.css"
-import {LangContext} from "../../context/LangContext";
+import {useTranslationChange} from "i18nano";
 
 
 const LangSwitcher = () => {
-    const {lang, switchLang} = useContext(LangContext)
+    const translation = useTranslationChange()
+
+    const switchLang = () => {
+        translation.lang === 'ru' ? translation.change('en') : translation.change('ru')
+    }
 
     return (
         <p className={cl.lang} onClick={switchLang}>
-            {lang}
+            {translation.lang}
         </p>
     );
 };

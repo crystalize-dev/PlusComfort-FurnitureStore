@@ -1,74 +1,33 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React from 'react';
 import cl from "./Product.module.css"
+import {useProductData} from "../../hooks/useProductData";
+import {useTranslation, useTranslationChange} from "i18nano";
 import {useParams} from "react-router-dom";
 import Trending from "../Home/Trending/Trending";
-import {store} from "../../hardcode/Store";
-import {CartContext} from "../../context/CartContext";
-import {ModalContext} from "../../context/ModalContext";
-import {LangContext} from "../../context/LangContext";
-import classNames from "classnames";
 
 
 const Product = () => {
     const productId = parseInt(useParams().id)
-    const item = store.find(storeItem => storeItem.id === productId)
-    const {lang} = useContext(LangContext)
 
-    const {addToCart} = useContext(CartContext)
-    const {setModal} = useContext(ModalContext)
+    const {
+        item,
+        image,
+        changeImage,
+        quantity,
+        increaseQuantity,
+        decreaseQuantity,
+        limitInput,
+        addToCartAndNotify,
+        buyNow,
+        notificationElem
+    } = useProductData(productId)
 
-    const [image, setImage] = useState(item.img)
-    const [quantity, setQuantity] = useState(1)
-    const [notification, setNotification] = useState(false)
-
-    const changeImage = (e) => {
-        setImage(e.target.src);
-    }
-
-    const increaseQuantity = () => {
-        if (quantity + 1 > 99) return
-
-        setQuantity(quantity + 1)
-    }
-    const decreaseQuantity = () => {
-        if (quantity - 1 <= 0) return
-
-        setQuantity(quantity - 1)
-    }
-
-    const addToCartAndNotify = () => {
-        addToCart(item, quantity)
-
-        setNotification(true)
-    }
-    const buyNow = () => {
-        addToCart(item, quantity)
-
-        setModal(true)
-    }
-
-    const limitInput = e => {
-        let newValue = Number(e.target.value)
-
-        if (newValue > 99) return
-
-        setQuantity(newValue)
-    }
-
-    useEffect(() => {
-        let header = document.getElementById('header')
-        header.scrollIntoView()
-
-        setImage(item.img)
-        setQuantity(1)
-    }, [item])
+    const lang = useTranslationChange().lang
+    const text = useTranslation()
 
     return (
         <div className={cl.wrapper}>
-            <div onAnimationEnd={() => setNotification(false)}
-                 className={notification ? classNames(cl.notification, cl.slide) : cl.notification}>
-                <p>{lang === 'ru' ? "Товар добавлен в корзину" : "Item has been added to the cart"} &nbsp; ✅</p>
-            </div>
+            {notificationElem}
 
             <div className={cl.container}>
                 <div className={cl.product}>
@@ -96,13 +55,15 @@ const Product = () => {
 
                         <div className={cl.amountArea}>
                             <p className={cl.quantity}>
-                                {lang === 'ru' ? 'Количество' : "Quantity"}
+                                {text('product.quantity')}
                             </p>
 
                             <div className={cl.btns}>
                                 <button onClick={decreaseQuantity}>-</button>
 
-                                <input type={"number"} value={quantity} onChange={e => limitInput(e)} min={1} max={99}/>
+                                <input type={"number"}
+                                       value={quantity} onChange={e => limitInput(e)}
+                                       min={1} max={99}/>
 
                                 <button className={cl.fix} onClick={increaseQuantity}>+</button>
                             </div>
@@ -112,9 +73,13 @@ const Product = () => {
 
                         <div className={cl.submitArea}>
                             <button
-                                onClick={addToCartAndNotify}>{lang === 'ru' ? 'Добавить в корзину' : "Add to cart"}</button>
+                                onClick={addToCartAndNotify}>
+                                {text('product.button.add')}
+                            </button>
 
-                            <button onClick={buyNow}>{lang === 'ru' ? "Купить сейчас" : "Buy now"}</button>
+                            <button onClick={buyNow}>
+                                {text('product.button.buy')}
+                            </button>
                         </div>
                     </div>
                 </div>

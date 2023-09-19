@@ -35,6 +35,11 @@
     cursor: pointer;
 
     height: 45px;
+    transition: all 0.3s ease;
+}
+.upperBlock form button:hover {
+    background-color: var(--color-main-red);
+    color: white;
 }
 
 .bottomBlock {
@@ -42,6 +47,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    padding: 4rem;
 
     height: 10rem;
 
@@ -56,10 +62,16 @@
     justify-content: center;
     text-align: center;
 }
-.links a {
+.links p {
     color: white;
     font-size: 1.8rem;
     text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.links p:hover {
+    color: var(--color-main-red);
 }
 
 @media (max-width: 980px) {

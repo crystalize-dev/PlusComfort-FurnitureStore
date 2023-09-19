@@ -1,11 +1,13 @@
 import React, {useContext} from 'react';
 import cl from "./CartCard.module.css"
 import {CartContext} from "../../../context/CartContext";
-import {LangContext} from "../../../context/LangContext";
+import {useTranslation, useTranslationChange} from "i18nano";
 
 
 const CartCard = ({item}) => {
-    const {lang} = useContext(LangContext)
+    const lang = useTranslationChange().lang
+    const text = useTranslation()
+
     const {deleteFromCart, increaseAmount, decreaseAmount} = useContext(CartContext)
 
     return (
@@ -26,7 +28,7 @@ const CartCard = ({item}) => {
             <div className={cl.right}>
                 <div>
                     <p>{(item.price * item.amount).toFixed(2)} $</p>
-                    <p className={cl.startCost}>({item.price}$ {lang === 'ru' ? "За" : "per"} 1)</p>
+                    <p className={cl.startCost}>({item.price}$ {text('cart.per')} 1)</p>
                 </div>
 
                 <i onClick={() => deleteFromCart(item)} className="fa-sharp fa-solid fa-xmark"></i>

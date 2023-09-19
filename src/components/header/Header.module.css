@@ -101,6 +101,10 @@
 .navbar > *:hover {
     color: var(--color-main-red);
 }
+.categoryLink {
+    min-width: 9.5rem;
+    max-width: 9.5rem;
+}
 .navbar i[data-count]::after {
     position: absolute;
     content: attr(data-count);

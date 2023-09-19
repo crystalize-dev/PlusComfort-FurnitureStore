@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import cl from "./ProudCard.module.css"
 import {Link} from "react-router-dom";
-import {LangContext} from "../../../context/LangContext";
+import {useTranslationChange} from "i18nano";
 
 
 const ProudCard = ({item}) => {
-    const {lang} = useContext(LangContext)
+    const lang = useTranslationChange().lang
 
     return (
         <Link to={`/products/${item.id}`} className={cl.card}>
