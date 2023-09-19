@@ -83,6 +83,9 @@
     }
 
     .gridContainer > a p {
-        font-size: 2.6rem;
+        font-size: 1.8rem;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

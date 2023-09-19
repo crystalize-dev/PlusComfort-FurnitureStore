@@ -26,7 +26,7 @@
     height: 100%;
     width: 100%;
 
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .middle {
@@ -78,6 +78,7 @@
     white-space: nowrap;
     max-width: 11rem;
     min-width: 11rem;
+    text-align: left;
 }
 .right i {
     font-weight: 900;
@@ -95,8 +96,9 @@
     .card {
         grid-template-columns: 1fr;
     }
-    .img img {
-        max-width: 20rem;
+
+    .img {
+        max-height: 20rem;
     }
 
     .controlBtns button {
