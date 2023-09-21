@@ -5,7 +5,7 @@ import {useCart} from "./hooks/useCart";
 import {CartContext} from "./context/CartContext";
 import {ModalContext} from "./context/ModalContext";
 import {TranslationProvider} from "i18nano";
-import {translations} from "./localization/localization";
+import {translations} from "./localization/translations";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
     return (
         <TranslationProvider translations={translations}
-                             language={'en'} fallback={'en'}
+                             fallback={'en'}
                              preloadLanguage={true} preloadFallback={true} transition={true}>
             <ModalContext.Provider value={{modal, setModal}}>
                 <CartContext.Provider value={{cart, addToCart, deleteFromCart, increaseAmount, decreaseAmount}}>

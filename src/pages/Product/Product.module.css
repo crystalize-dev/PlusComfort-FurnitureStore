@@ -25,6 +25,21 @@
     margin-bottom: 10rem;
 }
 
+.backArrow {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.backArrow i {
+    transition: all 0.3s ease 0s;
+}
+.backArrow:hover i {
+    transform: translateX(-10px);
+}
+
 .leftBlock {
     padding-top: 5rem;
     width: 50%;

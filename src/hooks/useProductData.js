@@ -55,11 +55,19 @@ export const useProductData = (id) => {
 
     // Не позволять вводить больше 99 в количество продукта
     const limitInput = e => {
-        let newValue = Number(e.target.value)
+        let newValue = parseInt(e.target.value, 10)
+
+        if (isNaN(newValue)) newValue = ""
 
         if (newValue > 99) return
 
         setQuantity(newValue)
+    }
+
+    const onBlur = e => {
+        if (Number(e.target.value) === 0) {
+            setQuantity(1)
+        }
     }
 
     const notificationElem = <Notification notification={notification} setNotification={setNotification}/>
@@ -83,6 +91,7 @@ export const useProductData = (id) => {
         limitInput,
         addToCartAndNotify,
         buyNow,
-        notificationElem
+        notificationElem,
+        onBlur
     }
 }

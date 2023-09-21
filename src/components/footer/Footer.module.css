@@ -69,6 +69,7 @@
 
     cursor: pointer;
     transition: all 0.3s ease;
+    user-select: none;
 }
 .links p:hover {
     color: var(--color-main-red);

@@ -2,12 +2,14 @@ import React from 'react';
 import cl from "./Product.module.css"
 import {useProductData} from "../../hooks/useProductData";
 import {useTranslation, useTranslationChange} from "i18nano";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Trending from "../Home/Trending/Trending";
 
 
 const Product = () => {
     const productId = parseInt(useParams().id)
+
+    const navigate = useNavigate()
 
     const {
         item,
@@ -19,7 +21,8 @@ const Product = () => {
         limitInput,
         addToCartAndNotify,
         buyNow,
-        notificationElem
+        notificationElem,
+        onBlur
     } = useProductData(productId)
 
     const lang = useTranslationChange().lang
@@ -30,6 +33,10 @@ const Product = () => {
             {notificationElem}
 
             <div className={cl.container}>
+                <div className={cl.backArrow} onClick={() => navigate(-1)}>
+                    <i className="fa-solid fa-arrow-left"></i>
+                    <p>{text('product.backarrow')}</p>
+                </div>
                 <div className={cl.product}>
                     <div className={cl.leftBlock}>
                         <h3>{lang === 'ru' ? item.descriptionRu : item.description}</h3>
@@ -63,12 +70,12 @@ const Product = () => {
 
                                 <input type={"number"}
                                        value={quantity} onChange={e => limitInput(e)}
-                                       min={1} max={99}/>
+                                       onBlur={e => onBlur(e)}/>
 
                                 <button className={cl.fix} onClick={increaseQuantity}>+</button>
                             </div>
 
-                            <p className={cl.price}>{(item.price * quantity).toFixed(2)}$</p>
+                            <p className={cl.price}>{isNaN(quantity) ? 0 : (item.price * quantity).toFixed(2)}$</p>
                         </div>
 
                         <div className={cl.submitArea}>
